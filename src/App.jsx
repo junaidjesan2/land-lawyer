@@ -1,13 +1,15 @@
-
-import './App.css'
+import { Helmet } from "react-helmet";
+import "./App.css";
 
 function App() {
-
   return (
     <>
-    <h1>Hello</h1>
+      <Helmet>
+        <title>Home | Land Lawyer</title>
+      </Helmet>
+      <h1>Hello</h1>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
