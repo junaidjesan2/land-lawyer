@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet";
 import "./App.css";
+import Banner from "./components/sharedSection/Banner";
 
 function App() {
   return (
@@ -7,7 +8,9 @@ function App() {
       <Helmet>
         <title>Home | Land Lawyer</title>
       </Helmet>
-      <h1>Hello</h1>
+      <div className="h-96">
+        <Banner></Banner>
+      </div>
     </>
   );
 }
