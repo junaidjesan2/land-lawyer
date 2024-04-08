@@ -1,4 +1,7 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+
+import { FaRegCircleUser } from "react-icons/fa6";
+
 
 export default function Header() {
   const buttonClass =
@@ -8,7 +11,7 @@ export default function Header() {
     { id: 2, name: "Update Profile", path: "/updateProfile" },
 ];
   return (
-    <div className="flex items-center justify-evenly py-4 bg-slate-100">
+    <div className="flex items-center justify-evenly py-4">
       <div>
         <h1 className="text-3xl font-bold">LandLawyer</h1>
       </div>
@@ -20,9 +23,9 @@ export default function Header() {
         ))}
       </div>
       <div className="flex items-center gap-3">
-        <button className={buttonClass}>User Profile</button>
-        <button className={buttonClass}>Sign In</button>
-        <button className={buttonClass}>Sign Up</button>
+        <button><FaRegCircleUser className="w-8 h-8"/></button>
+        <Link to='/signin' className={buttonClass}>Sign In</Link>
+        <Link to='/signup' className={buttonClass}>Sign Up</Link>
       </div>
     </div>
   );
