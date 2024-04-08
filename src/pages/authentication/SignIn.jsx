@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { ClassProvider } from "../../context/StyleContext";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import { FaGithub, FaGoogle } from "react-icons/fa";
 
 export default function SignIn() {
   const { buttonClass } = useContext(ClassProvider);
@@ -10,8 +11,8 @@ export default function SignIn() {
       <Helmet>
         <title>Sign In | Land Lawyer</title>
       </Helmet>
-      <div className="">
-        <form className="max-w-sm mx-2/4 mx-auto py-16 px-6 drop-shadow-lg shadow-md shadow-slate-500 my-10 rounded-md">
+      <div className="max-w-sm mx-2/4 mx-auto py-16 px-6 drop-shadow-lg shadow-md shadow-slate-500 my-10 rounded-md">
+        <form>
           <div className="mb-5">
             <label
               for="email"
@@ -74,6 +75,11 @@ export default function SignIn() {
             Sign In Now
           </button>
         </form>
+        <h1 className="text-center mt-4 text-rose-500">Sign in With</h1>
+        <div className="flex justify-center gap-5 mt-3">
+          <FaGoogle className="w-7 h-7 hover:drop-shadow-lg hover:text-rose-700 text-rose-500" />
+          <FaGithub className="w-7 h-7 hover:drop-shadow-lg hover:text-rose-700 text-rose-500" />
+        </div>
       </div>
     </div>
   );
