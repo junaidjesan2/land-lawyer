@@ -3,11 +3,17 @@ import App from "../App";
 import PublicLayout from "../Layout/PublicLayout";
 import SignIn from "../pages/authentication/SignIn";
 import NotFound from "../pages/NotFound";
+import SignUp from "../pages/authentication/SignUp";
+import StyleContext from "../context/StyleContext";
 
 export const PageRouter = createBrowserRouter([
   {
     path: "/",
-    element: <PublicLayout></PublicLayout>,
+    element: (
+      <StyleContext>
+        <PublicLayout></PublicLayout>,
+      </StyleContext>
+    ),
     children: [
       {
         path: "/",
@@ -15,11 +21,15 @@ export const PageRouter = createBrowserRouter([
       },
       {
         path: "/signin",
-        element: <SignIn></SignIn>
+        element: <SignIn></SignIn>,
+      },
+      {
+        path: "/signup",
+        element: <SignUp></SignUp>,
       },
       {
         path: "*",
-        element: <NotFound></NotFound>
+        element: <NotFound></NotFound>,
       },
     ],
   },
