@@ -1,14 +1,17 @@
 import { Link, NavLink } from "react-router-dom";
 
 import { FaRegCircleUser } from "react-icons/fa6";
+import { useContext } from "react";
+import { ClassProvider } from "../../context/StyleContext";
 
 
 export default function Header() {
-  const buttonClass =
-    "bg-rose-700 px-6 py-2 text-slate-200 font-semibold rounded-lg";
+  const {buttonClass}=useContext(ClassProvider)
+  
   const navLinks = [
     { id: 1, name: "Home", path: "/" },
     { id: 2, name: "Update Profile", path: "/updateProfile" },
+    { id: 3, name: "Projects", path: "/projects" },
 ];
   return (
     <div className="flex items-center justify-evenly py-4">
