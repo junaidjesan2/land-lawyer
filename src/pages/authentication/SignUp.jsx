@@ -1,11 +1,15 @@
 import { useContext } from "react";
 import { ClassProvider } from "../../context/StyleContext";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 export default function SignUp() {
   const { buttonClass } = useContext(ClassProvider);
   return (
     <div>
+      <Helmet>
+        <title>Sign Up | Land Lawyer</title>
+      </Helmet>
       <form className="max-w-sm mx-2/4 mx-auto py-16 px-6 drop-shadow-lg shadow-md shadow-slate-500 my-10 rounded-md">
         <div className="mb-5">
           <label
