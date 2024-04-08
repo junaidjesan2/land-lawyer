@@ -1,12 +1,16 @@
 import { useContext, useState } from "react";
-import { ClassProvider } from "../../context/StyleContext";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { FaGithub, FaGoogle, FaRegEye } from "react-icons/fa";
 
+import { ClassProvider } from "../../context/StyleContext";
+import { AuthProvider } from "../../context/AuthContext";
+
 export default function SignUp() {
   const { buttonClass } = useContext(ClassProvider);
   const [showPass, setShowPass] = useState(false);
+
+  const { googleSignIn } = useContext(AuthProvider);
 
   return (
     <div>
@@ -132,8 +136,11 @@ export default function SignUp() {
         </form>
         <h1 className="text-center mt-4 text-rose-500">Sign Up With</h1>
         <div className="flex justify-center gap-5 mt-3">
-          <FaGoogle className="w-7 h-7 hover:drop-shadow-lg hover:text-rose-700 text-rose-500"/>
-          <FaGithub className="w-7 h-7 hover:drop-shadow-lg hover:text-rose-700 text-rose-500"/>
+          <FaGoogle
+            onClick={googleSignIn}
+            className="w-7 h-7 hover:drop-shadow-lg hover:text-rose-700 text-rose-500"
+          />
+          <FaGithub className="w-7 h-7 hover:drop-shadow-lg hover:text-rose-700 text-rose-500" />
         </div>
       </div>
     </div>
