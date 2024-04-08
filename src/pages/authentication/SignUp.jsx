@@ -1,17 +1,19 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ClassProvider } from "../../context/StyleContext";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import { FaGithub, FaGoogle } from "react-icons/fa";
+import { FaGithub, FaGoogle, FaRegEye } from "react-icons/fa";
 
 export default function SignUp() {
   const { buttonClass } = useContext(ClassProvider);
+  const [showPass, setShowPass] = useState(false);
+
   return (
     <div>
       <Helmet>
         <title>Sign Up | Land Lawyer</title>
       </Helmet>
-      <div className="max-w-sm mx-2/4 mx-auto py-16 px-6 drop-shadow-lg shadow-md shadow-slate-500 my-10 rounded-md">
+      <div className="max-w-sm w-5/6 mx-auto py-16 px-6 drop-shadow-lg shadow-md shadow-slate-500 my-10 rounded-md">
         <form>
           <div className="mb-5">
             <label
@@ -68,12 +70,18 @@ export default function SignUp() {
             >
               Your password
             </label>
-            <input
-              type="password"
-              id="password"
-              className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-              required
-            />
+            <div className="flex flex-row items-center gap-3">
+              <input
+                type={showPass ? "text" : "password"}
+                id="password"
+                className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                required
+              />
+              <FaRegEye
+                onClick={() => setShowPass(!showPass)}
+                className="h-5 w-5"
+              />
+            </div>
           </div>
           <div className="mb-5">
             <label
