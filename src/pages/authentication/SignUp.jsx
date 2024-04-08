@@ -10,7 +10,7 @@ export default function SignUp() {
   const { buttonClass } = useContext(ClassProvider);
   const [showPass, setShowPass] = useState(false);
 
-  const { googleSignIn } = useContext(AuthProvider);
+  const { googleSignIn, githubSignIn } = useContext(AuthProvider);
 
   return (
     <div>
@@ -140,7 +140,10 @@ export default function SignUp() {
             onClick={googleSignIn}
             className="w-7 h-7 hover:drop-shadow-lg hover:text-rose-700 text-rose-500"
           />
-          <FaGithub className="w-7 h-7 hover:drop-shadow-lg hover:text-rose-700 text-rose-500" />
+          <FaGithub
+            onClick={githubSignIn}
+            className="w-7 h-7 hover:drop-shadow-lg hover:text-rose-700 text-rose-500"
+          />
         </div>
       </div>
     </div>
