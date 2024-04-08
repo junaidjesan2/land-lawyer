@@ -9,7 +9,7 @@ import "swiper/css/navigation";
 import "./Banner.css";
 
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
-import { images } from "../../../datas/sliderImage";
+import { images } from "../../../public/datas/sliderImage";
 
 export default function Banner() {
   const progressCircle = useRef(null);
