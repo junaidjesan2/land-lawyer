@@ -1,5 +1,5 @@
-import { useRef } from "react";
-
+import { useEffect, useRef, useState } from "react";
+import axios from "axios";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
@@ -9,15 +9,22 @@ import "swiper/css/navigation";
 import "./Banner.css";
 
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
-import { images } from "../../../public/datas/sliderImage";
 
 export default function Banner() {
   const progressCircle = useRef(null);
   const progressContent = useRef(null);
+  const [sliderData, setSliderData] = useState([]);
+
   const onAutoplayTimeLeft = (s, time, progress) => {
     progressCircle.current.style.setProperty("--progress", 1 - progress);
     progressContent.current.textContent = `${Math.ceil(time / 500)}s`;
   };
+
+  useEffect(() => {
+    axios.get(import.meta.env.VITE_SLIDER_IMAGES_API).then((rs) => {
+      setSliderData(rs.data);
+    });
+  }, []);
 
   return (
     <>
@@ -36,7 +43,7 @@ export default function Banner() {
         onAutoplayTimeLeft={onAutoplayTimeLeft}
         className="mySwiper"
       >
-        {images.map((img) => (
+        {sliderData.map((img) => (
           <SwiperSlide key={img.id}>
             <img src={img.link} alt="" />
           </SwiperSlide>

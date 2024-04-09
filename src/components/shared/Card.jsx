@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 
 export default function Card({ d }) {
   const { buttonClass } = useContext(ClassProvider);
-  console.log(d);
   return (
     <div>
       <div className="w-96 my-10 mx-auto max-w-sm bg-white border border-gray-200 rounded-lg shadow">

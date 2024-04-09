@@ -19,7 +19,7 @@ export const PageRouter = createBrowserRouter([
       {
         path: "/",
         element: <App></App>,
-        loader: () => fetch("../../public/datas/Data.json"),
+        loader: () => fetch(import.meta.env.VITE_LAND_DETAILS_API),
       },
       {
         path: "/land/:id",
